@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML parser</title>
+</head>
+<form th:method="POST" th:action="@{/}" th:object="${link}">
+    <div>
+        <input type="text" th:field="*{link}" placeholder="Адрес web-страницы">
+        <input type="submit" value="Парсить!"/>
+    </div>
+</form>
+<h1 th:text="${link.getLink()}">Статистика</h1>
+<div th:each="word : ${words}">
+    <p th:text="${word.getWordName() + ' - ' + word.getWordCount()}"/>
+</div>
+</body>
+</html>
